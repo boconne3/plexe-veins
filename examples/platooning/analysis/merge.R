@@ -37,12 +37,28 @@ if (length(args) != 0) {
 
     files <- paste(res.folder, files, sep="")
 
+    filesOneAcc <- c()
+    accCount <- 0
+    for (i in 1:length(files)) {
+        isAcc <- grepl("Sinusoidal_0", files[i])
+        if(isAcc && accCount == 0) {
+            filesOneAcc <- c(filesOneAcc, files[i])
+            accCount <- 1
+        }
+        else if (!isAcc){
+            filesOneAcc <- c(filesOneAcc, files[i])
+        }
+    }
+
     if(1) {
         print("merging data")
         cat("outfile: ", outfile, "\n")
         print("files:")
         print(files)
+        print("filesOneAcc:")
+        print(filesOneAcc)
     }
+    files <- filesOneAcc
 
     allData <- data.frame()
 

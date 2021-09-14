@@ -1,0 +1,130 @@
+file 96174 1621564785                                           
+version 2
+run SinusoidalPLossNoGui-0-20210521-03:39:43-80692
+attr beaconInterval 0.1
+attr configname SinusoidalPLossNoGui
+attr controller 1
+attr datetime 20210521-03:39:43
+attr experiment SinusoidalPLossNoGui
+attr headway 0.1
+attr inifile omnetpp.ini
+attr iterationvars "$thermalNoise=-95, $txPower=100, $packetLossRate=0, $beaconInterval=0.1, $controller=1, $sController=\"CACC\", $headway=0.1, $0=5, $1=0, $nCars=1, $platoonSize=8, $nLanes=1, $ploegH=0.5, $leaderHeadway=1.2, $leaderSpeed=100, $packetSize=200"
+attr iterationvarsf thermalNoise=-95,txPower=100,packetLossRate=0,beaconInterval=0.1,controller=1,sController=CACC,headway=0.1,5,0,nCars=1,platoonSize=8,nLanes=1,ploegH=0.5,leaderHeadway=1.2,leaderSpeed=100,packetSize=200-
+attr leaderHeadway 1.2
+attr leaderSpeed 100
+attr measurement "$thermalNoise=-95, $txPower=100, $packetLossRate=0, $beaconInterval=0.1, $controller=1, $sController=\"CACC\", $headway=0.1, $0=5, $1=0, $nCars=1, $platoonSize=8, $nLanes=1, $ploegH=0.5, $leaderHeadway=1.2, $leaderSpeed=100, $packetSize=200"
+attr nCars 1
+attr nLanes 1
+attr network Highway
+attr packetLossRate 0
+attr packetSize 200
+attr platoonSize 8
+attr ploegH 0.5
+attr processid 80692
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr sController "\"CACC\""
+attr seedset 0
+attr thermalNoise -95
+attr txPower 100
+param **.coreDebug false
+param **.debug false
+param **.headway 0.1s
+param **.numberOfCars 1
+param **.numberOfCarsPerPlatoon 8
+param **.numberOfLanes 1
+param **.numericController 1
+param **.seed 0
+param **.traffic.nCars 1
+param **.traffic.nLanes 1
+param **.traffic.platoonInsertDistance 5m
+param **.traffic.platoonInsertHeadway 0s
+param **.traffic.platoonInsertSpeed 100kmph
+param **.traffic.platoonInsertTime "1 s"
+param **.traffic.platoonLeaderHeadway 1.2s
+param **.traffic.platoonSize 8
+param **.traffic.platooningVType "\"vtypeauto\""
+param **.traffic_type "\"PlatoonsTrafficManager\""
+param *.**.nic.mac1609_4.bitrate 6Mbps
+param *.**.nic.mac1609_4.txPower 100mW
+param *.**.nic.mac1609_4.useServiceChannel false
+param *.**.nic.phy80211p.analogueModels "xmldoc(\"config.xml\")"
+param *.**.nic.phy80211p.decider "xmldoc(\"config.xml\")"
+param *.**.nic.phy80211p.maxTXPower 100mW
+param *.**.nic.phy80211p.sensitivity -94dBm
+param *.**.nic.phy80211p.thermalNoise -95dBm
+param *.**.nic.phy80211p.usePropagationDelay true
+param *.**.nic.phy80211p.useThermalNoise true
+param *.annotations.draw false
+param *.connectionManager.drawMaxIntfDist false
+param *.connectionManager.maxInterfDist 2600m
+param *.connectionManager.sendDirect true
+param *.manager.autoShutdown true
+param *.manager.configFile "\"./sumocfg/freeway.sumo.cfg\""
+param *.manager.host "\"localhost\""
+param *.manager.margin 25
+param *.manager.moduleDisplayString "\"\""
+param *.manager.moduleName "\"node\""
+param *.manager.moduleType "\"org.car2x.veins.modules.application.platooning.PlatoonCar\""
+param *.manager.updateInterval 0.01s
+param *.manager.useGui true
+param *.node[*].appl_type "\"SimplePlatooningApp\""
+param *.node[*].helper.nCars 1
+param *.node[*].helper.nLanes 1
+param *.node[*].helper.platoonSize 8
+param *.node[*].helper_type "\"PositionHelper\""
+param *.node[*].mobility.x 0
+param *.node[*].mobility.y 0
+param *.node[*].mobility.z 1.895
+param *.node[*].prot.beaconingInterval 0.1s
+param *.node[*].prot.packetSize 200
+param *.node[*].prot.priority 4
+param *.node[*].protocol_type "\"SimplePlatooningBeaconing\""
+param *.node[*].scenario.accHeadway 0.1s
+param *.node[*].scenario.caccC1 0.5
+param *.node[*].scenario.caccOmegaN "0.2 Hz"
+param *.node[*].scenario.caccXi 1
+param *.node[*].scenario.controller "\"CACC\""
+param *.node[*].scenario.leaderHeadway 1.2s
+param *.node[*].scenario.leaderOscillationFrequency "0.2 Hz"
+param *.node[*].scenario.leaderSpeed 100kmph
+param *.node[*].scenario.oscillationAmplitude "35 kmph"
+param *.node[*].scenario.ploegH 0.5s
+param *.node[*].scenario.ploegKd 0.7
+param *.node[*].scenario.ploegKp 0.2
+param *.node[*].scenario.startOscillating "5 s"
+param *.node[*].scenario.useControllerAcceleration true
+param *.node[*].scenario.useRealisticEngine false
+param *.node[*].scenario_type "\"SinusoidalScenario\""
+param *.node[*].unicast.packetLossRate 0
+param *.obstacles.debug false
+param *.playgroundSizeX 65000m
+param *.playgroundSizeY 25000m
+param *.playgroundSizeZ 50m
+param *.world.use2D false
+param *.world.useTorus false
+
+vector 1  Highway.node[0].appl  distance  ETV
+vector 2  Highway.node[0].appl  relativeSpeed  ETV
+vector 3  Highway.node[0].appl  nodeId  ETV
+vector 7  Highway.node[0].appl  acceleration  ETV
+vector 8  Highway.node[0].appl  controllerAcceleration  ETV
+vector 4  Highway.node[0].appl  speed  ETV
+vector 5  Highway.node[0].appl  posx  ETV
+vector 6  Highway.node[0].appl  posy  ETV
+vector 9  Highway.node[0].prot  nodeId  ETV
+vector 10  Highway.node[0].prot  busyTime  ETV
+vector 11  Highway.node[0].prot  collisions  ETV
+8	4903 11016 225 19062 1.11 59.91 589 -1.5 1.5 -17.61095859391 1164.6931888758
+7	15919 13137 225 19062 1.11 59.91 589 -1.48033 1.47127 -11.21181060636 739.78755687287
+6	29056 11949 225 19062 1.11 59.91 589 242.45 242.45 142803.05 34622599.4725
+5	41005 12437 225 19062 1.11 59.91 589 9372.11 11023.8 6009230.71 61442849623.168
+4	53442 12477 225 19062 1.11 59.91 589 26.4344 30.5701 16543.814 465233.96803776
+2	65919 9004 225 19062 1.11 59.91 589 0 0 0 0
+1	74923 9593 225 19062 1.11 59.91 589 -1 -1 -589 589
+3	84516 9004 225 19062 1.11 59.91 589 0 0 0 0
+11	93520 786 503 19091 2 60 59 0 0 0 0
+10	94306 1141 503 19091 2 60 59 0.004473 0.00497 0.292733 0.001452659929
+9	95447 727 503 19091 2 60 59 0 0 0 0

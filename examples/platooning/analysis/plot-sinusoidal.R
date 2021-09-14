@@ -1,25 +1,27 @@
 #load ggplot for quick and dirty plotting
 library(ggplot2)
 
+#cntr = c(
+#   "ACC (0.3 s)",
+#   "ACC (1.2 s)",
+#   "CACC",
+#   "PLOEG",
+#   "CONSENSUS",
+#   "FLATBED"
+#)
+
 cntr = c(
-   "ACC (0.3 s)",
-   "ACC (1.2 s)",
-   "CACC",
-   "PLOEG",
-   "CONSENSUS",
-   "FLATBED"
+   "ACC",
+   "CACC"
 )
 
 #map controller id to name
-controller <- function(id, headway) {
-    ifelse(id == 0,
-        ifelse(headway < 1, cntr[1], cntr[2]),
-        cntr[id+2]
-    )
+controller <- function(id, headway, pLoss) {
+    paste(ifelse(id == 0, cntr[1], cntr[2]), " pLoss=", pLoss, sep="")
 }
 
 load('../results/Sinusoidal.Rdata')
-allData$controllerName <- controller(allData$controller, allData$headway)
+allData$controllerName <- controller(allData$controller, allData$headway, allData$packetLossRate)
 
 p.speed <- ggplot(allData, aes(x=time, y=speed*3.6, col=factor(nodeId))) +
            geom_line() +

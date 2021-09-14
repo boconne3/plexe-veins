@@ -1,0 +1,15 @@
+[DEFAULT]
+defaultMap = myJoin-pLoss
+file = map-config
+
+[params]
+resdir = ../results
+
+[config]
+config = MyJoinManeuverPLoss
+out = MyJoinManeuverPLoss
+map    = %(defaultMap)s
+mapFile = %(file)s
+prefix = join
+merge = 1
+

@@ -38,6 +38,9 @@ public:
      * @param app pointer to the generic application used to fetch parameters and inform it about a concluded maneuver
      */
     JoinAtBack(GeneralPlatooningApp* app);
+    JoinAtBack(GeneralPlatooningApp* app, const char* _controllerName);
+    enum Plexe::ACTIVE_CONTROLLER controller;
+    const char* controllerName;
     virtual ~JoinAtBack(){};
 
     /**

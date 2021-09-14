@@ -93,6 +93,9 @@ void BaseScenario::initialize(int stage)
             traciVehicle->setActiveController(controller);
             traciVehicle->setACCHeadwayTime(accHeadway);
         }
+//        std::cout << "\nID: " << positionHelper->getId();
+//        std::cout << "\nController: " << traciVehicle->getActiveController() << "\n";
+
         // set the current lane
         traciVehicle->setFixedLane(positionHelper->getPlatoonLane());
         traciVehicle->setSpeedMode(0);

@@ -33,6 +33,7 @@
  */
 class PositionHelper : public BasePositionHelper {
 
+
 public:
     virtual void initialize(int stage) override;
 
@@ -80,6 +81,7 @@ public:
      * Returns whether a vehicle is part of my platoon
      */
     virtual bool isInSamePlatoon(int vehicleId) const override;
+
 
 public:
     static int getIdFromExternalId(std::string externalId);

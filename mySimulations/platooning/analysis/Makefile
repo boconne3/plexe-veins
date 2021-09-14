@@ -1,0 +1,45 @@
+# tool for indexing vec files
+SCAVETOOL = scavetool
+# scripts location
+SCRIPTDIR = .
+# results location
+RESDIR = ../results
+# script for merging
+MERGESCRIPT = $(SCRIPTDIR)/merge.R
+
+# match all .vec files for the Braking config
+BRAKING      = $(wildcard $(RESDIR)/Braking*.vec)
+# change suffix from .vec to .Rdata and add the sin prefix
+BRAKING_DATA = $(BRAKING:$(RESDIR)/%.vec=$(RESDIR)/sin.%.Rdata)
+
+# vector index files and Rdata files
+VCI = $(VECTOR:%.vec=%.vci)
+RDATA = $(VECTOR:%.vec=%.Rdata)
+CSV = $(VECTOR:%.vec=%.csv)
+
+# all make targets
+all: Braking.Rdata 
+
+# to make Braking.Rdata we need to merge all files starting with sin.Braking
+# before this, check that all BRAKING_DATA files have been processed
+$(RESDIR)/Braking.Rdata: $(BRAKING_DATA)
+	Rscript $(MERGESCRIPT) $(RESDIR)/ sin.Braking $(notdir $@) map-config braking Rdata
+Braking.Rdata: $(RESDIR)/Braking.Rdata
+
+# to make all sin.*.Rdata files we need to run the generic parser
+sin.%.Rdata: %.vec %.vci
+	Rscript generic-parser.R $< map-config braking sin Rdata
+
+# if vec files are not indexed, index them
+%.vci : %.vec
+	$(SCAVETOOL) index $<
+
+# helper to print variable values. e.g.: make print-DELAY_DATA
+print-%:
+	@echo '$*=$($*)'
+
+# every intermediate file is kept instead of being automatically deleted.
+# .vci files are detected as intermediate and thus cancelled when the make
+# command terminates. however, such files can still be needed by other
+# targets, so keep them instead of re-doing indexing
+.SECONDARY :

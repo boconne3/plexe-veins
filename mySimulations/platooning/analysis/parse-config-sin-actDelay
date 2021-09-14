@@ -1,0 +1,15 @@
+[DEFAULT]
+defaultMap = actDelay
+file = map-config
+
+[params]
+resdir = ../results
+
+[config]
+config = SinusoidalActDelay
+out = SinusoidalActDelay
+map    = %(defaultMap)s
+mapFile = %(file)s
+prefix = sin
+merge = 1
+

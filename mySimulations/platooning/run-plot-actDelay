@@ -1,0 +1,5 @@
+#!/bin/sh
+cd analysis
+./genmakefile.py parse-config-sin-actDelay > Makefile
+make
+Rscript plot-sinusoidal-actDelay.R

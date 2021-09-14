@@ -1,0 +1,15 @@
+[DEFAULT]
+defaultMap = thermalNoise
+file = map-config
+
+[params]
+resdir = ../results
+
+[config]
+config = SinusoidalThermalNoise
+out = SinusoidalThermalNoise
+map    = %(defaultMap)s
+mapFile = %(file)s
+prefix = sin
+merge = 1
+

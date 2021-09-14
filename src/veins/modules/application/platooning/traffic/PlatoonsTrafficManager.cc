@@ -72,6 +72,12 @@ void PlatoonsTrafficManager::insertPlatoons()
     // total length for one lane
     double totalLength = nPlatoons * platoonLength + (nPlatoons - 1) * platoonDistance;
 
+//    std::cout << "\nDistance: " << distance; 
+//    std::cout << "\nnPlatoons: " << nPlatoons; 
+//    std::cout << "\nplatoonLength: " << platoonLength; 
+//    std::cout << "\nplatoonDistance: " << platoonDistance; 
+//    std::cout << "\ntotalLength: " << totalLength << "\n"; 
+
     // for each lane, we create an offset to have misaligned platoons
     double* laneOffset = new double[nLanes];
     for (int l = 0; l < nLanes; l++) laneOffset[l] = uniform(0, 20);

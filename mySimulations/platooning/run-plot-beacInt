@@ -1,0 +1,5 @@
+#!/bin/sh
+cd analysis
+./genmakefile.py parse-config-sin-beacInt > Makefile
+make
+Rscript plot-sinusoidal-beacInt.R

@@ -1,0 +1,5 @@
+#!/bin/sh
+cd analysis
+./genmakefile.py parse-config-myJoin > Makefile
+make
+Rscript plot-myJoin.R

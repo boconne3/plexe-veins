@@ -1,0 +1,5 @@
+#!/bin/sh
+cd analysis
+./genmakefile.py parse-config-sin-pLoss > Makefile
+make
+Rscript plot-sinusoidal-pLoss.R

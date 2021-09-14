@@ -26,6 +26,7 @@ parameters:
 
     // implementation of the join maneuver to be used
     string joinManeuver;
+    string controller;
 
     int headerLength @unit("bit") = default(0 bit);
     @display("i=block/app2");

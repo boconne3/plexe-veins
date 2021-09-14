@@ -1,0 +1,5 @@
+#!/bin/sh
+cd analysis
+./genmakefile.py parse-config-sin-thermalNoise > Makefile
+make
+Rscript plot-sinusoidal-thermalNoise.R

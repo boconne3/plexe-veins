@@ -1,0 +1,5 @@
+#!/bin/sh
+cd analysis
+./genmakefile.py parse-config-myJoin-pLoss > Makefile
+make
+Rscript plot-myJoin-pLoss.R

@@ -1,0 +1,5 @@
+#!/bin/sh
+cd analysis
+./genmakefile.py parse-config-sin-txPower > Makefile
+make
+Rscript plot-sinusoidal-txPower.R

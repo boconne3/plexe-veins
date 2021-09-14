@@ -1,0 +1,5 @@
+#!/bin/sh
+cd analysis
+./genmakefile.py parse-config-sin-braking > Makefile
+make
+Rscript plot-sinusoidal-braking.R

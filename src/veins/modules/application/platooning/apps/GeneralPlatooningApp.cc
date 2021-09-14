@@ -22,6 +22,7 @@
 #include "veins/modules/application/platooning/protocols/BaseProtocol.h"
 #include "veins/modules/mobility/traci/TraCIColor.h"
 #include "veins/modules/mobility/traci/TraCIScenarioManager.h"
+#include <iostream>
 
 using namespace Veins;
 
@@ -36,8 +37,9 @@ void GeneralPlatooningApp::initialize(int stage)
         protocol->registerApplication(MANEUVER_TYPE, gate("lowerLayerIn"), gate("lowerLayerOut"), gate("lowerControlIn"), gate("lowerControlOut"));
 
         std::string joinManeuverName = par("joinManeuver").stdstringValue();
+        const char* controllerName = par("controller").stringValue();
         if (joinManeuverName == "JoinAtBack")
-            joinManeuver = new JoinAtBack(this);
+            joinManeuver = new JoinAtBack(this, controllerName);
         else
             throw new cRuntimeError("Invalid join maneuver implementation chosen");
     }
@@ -94,11 +96,25 @@ void GeneralPlatooningApp::handleLowerMsg(cMessage* msg)
     }
 }
 
+std::string GeneralPlatooningApp::printPlatoonRoleName(PlatoonRole r)
+{
+    if(r == PlatoonRole::NONE) return "NONE";
+    else if(r == PlatoonRole::LEADER) return "LEADER";
+    else if(r == PlatoonRole::FOLLOWER) return "FOLLOWER";
+    else if(r == PlatoonRole::JOINER) return "JOINER";
+    else return "ERROR";
+}
+
 void GeneralPlatooningApp::handleUpdatePlatoonFormation(const UpdatePlatoonFormation* msg)
 {
+    setPlatoonRole(PlatoonRole::FOLLOWER);
     if (getPlatoonRole() != PlatoonRole::FOLLOWER) return;
     if (msg->getPlatoonId() != positionHelper->getPlatoonId()) return;
     if (msg->getVehicleId() != positionHelper->getLeaderId()) return;
+
+//    std::cout << "\nVehicle " << positionHelper->getId();
+//    std::cout << "\nRole: " << printPlatoonRoleName(getPlatoonRole());
+//    std::cout << "\nController: " << traciVehicle->getActiveController() << "\n";
 
     // update formation information
     std::vector<int> f;

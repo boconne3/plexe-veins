@@ -80,14 +80,24 @@ int BasePositionHelper::getBackId() const
     return backId;
 }
 
+//int BasePositionHelper::getMemberId(const int position) const
+//{
+//    return -1;
+//}
+
+//int BasePositionHelper::getMemberPosition(const int vehicleId) const
+//{
+//    return -1;
+//}
+
 int BasePositionHelper::getMemberId(const int position) const
 {
-    return -1;
+    return leaderId + position * nLanes;
 }
 
 int BasePositionHelper::getMemberPosition(const int vehicleId) const
 {
-    return -1;
+    return (vehicleId - leaderId) / nLanes;
 }
 
 int BasePositionHelper::getPlatoonId() const

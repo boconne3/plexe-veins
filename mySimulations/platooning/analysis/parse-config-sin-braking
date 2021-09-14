@@ -1,0 +1,15 @@
+[DEFAULT]
+defaultMap = braking
+file = map-config
+
+[params]
+resdir = ../results
+
+[config]
+config = Braking
+out = Braking
+map    = %(defaultMap)s
+mapFile = %(file)s
+prefix = sin
+merge = 1
+

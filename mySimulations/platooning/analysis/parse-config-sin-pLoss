@@ -1,0 +1,15 @@
+[DEFAULT]
+defaultMap = pLoss
+file = map-config
+
+[params]
+resdir = ../results
+
+[config]
+config = SinusoidalPLoss
+out = SinusoidalPLoss
+map    = %(defaultMap)s
+mapFile = %(file)s
+prefix = sin
+merge = 1
+

@@ -1,0 +1,15 @@
+[DEFAULT]
+defaultMap = myJoin-braking
+file = map-config
+
+[params]
+resdir = ../results
+
+[config]
+config = MyJoinManeuverBraking
+out = MyJoinManeuverBraking
+map    = %(defaultMap)s
+mapFile = %(file)s
+prefix = join
+merge = 1
+

@@ -67,6 +67,8 @@ public:
     /** d'tor for GeneralPlatooningApp */
     virtual ~GeneralPlatooningApp();
 
+    std::string printPlatoonRoleName(PlatoonRole r);
+
     /**
      * Returns the role of this car in the platoon
      *

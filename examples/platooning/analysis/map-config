@@ -4,4 +4,5 @@ module = Highway.node[*].appl
 names = nodeId,distance,relativeSpeed,speed,acceleration,controllerAcceleration
 2 = controller
 3 = headway
-4 = runNumber
+4 = packetLossRate
+5 = runNumber

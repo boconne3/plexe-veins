@@ -1,0 +1,54 @@
+#default setup
+[default]
+module = Highway.node[*].appl
+names = nodeId,distance,relativeSpeed,speed,acceleration,controllerAcceleration
+2 = controller
+3 = headway
+4 = runNumber
+
+[braking]
+module = Highway.node[*].appl
+names = nodeId,distance,relativeSpeed,speed,acceleration,controllerAcceleration
+2 = controller
+3 = headway
+4 = runNumber
+
+[pLoss]
+module = Highway.node[*].appl
+names = nodeId,distance,relativeSpeed,speed,acceleration,controllerAcceleration
+2 = controller
+3 = headway
+4 = packetLossRate
+5 = runNumber
+
+[beacInt]
+module = Highway.node[*].appl
+names = nodeId,distance,relativeSpeed,speed,acceleration,controllerAcceleration
+2 = controller
+3 = headway
+4 = beaconInterval
+5 = runNumber
+
+[txPower]
+module = Highway.node[*].appl
+names = nodeId,distance,relativeSpeed,speed,acceleration,controllerAcceleration
+2 = controller
+3 = headway
+4 = txPower
+5 = runNumber
+
+[thermalNoise]
+module = Highway.node[*].appl
+names = nodeId,distance,relativeSpeed,speed,acceleration,controllerAcceleration
+2 = controller
+3 = headway
+4 = thermalNoise
+5 = runNumber
+
+[actDelay]
+module = Highway.node[*].appl
+names = nodeId,distance,relativeSpeed,speed,acceleration,controllerAcceleration
+2 = controller
+3 = headway
+4 = actDelay
+5 = runNumber
